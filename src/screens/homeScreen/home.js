@@ -4,6 +4,7 @@ import ProfileComponent from "./ProfileComponent";
 import { LinearGradient } from "expo-linear-gradient";
 import CardComponent from "./CardComponent";
 import MainFeatureComponent from "./MainFeatureComponent";
+import AdditionalFeaturesComponent from "./AdditionalFeaturesComponent";
 
 const HomeScreen = () => {
   return (
@@ -17,6 +18,7 @@ const HomeScreen = () => {
       <ProfileComponent />
       <CardComponent />
       <MainFeatureComponent />
+      <AdditionalFeaturesComponent />
     </View>
   );
 };
@@ -24,14 +26,15 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
     paddingHorizontal: 16,
     paddingTop: 48,
-    gap: 24
+    gap: 24,
   },
   gradient: {
     position: "absolute",
     top: 0,
-    bottom: "50%",
+    bottom: "65%",
     left: 0,
     right: 0,
     flex: 1,
