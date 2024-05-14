@@ -15,7 +15,7 @@ const AppSrc = () => {
             <Stack.Screen name="Splashscreen" 
                 component={splashscreen} 
                 options={{ headerShown: false }}/>
-            <Stack.Screen name="Login" 
+            <Stack.Screen name="Login"  
                 component={LoginScreen}
                 options={{headerLeft: null, headerShown: false}} />
             <Stack.Screen name="Home" component={HomeScreen}

@@ -1,12 +1,17 @@
+import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { Fingerprint } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import ListMenuPintasan from '../../components/ListMenuPintasan';
-import { useNavigation } from '@react-navigation/native';
+import LoginModal from './loginModal';
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
-  
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleLoginPress = () => {
+    setModalVisible(true);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
@@ -29,17 +34,20 @@ const LoginScreen = () => {
       </View>
       <Text style={styles.text2}>Menu Pintasan</Text>
       <ListMenuPintasan />
-      <TouchableOpacity style={styles.loginButton}
-      onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLoginPress}>
         <LinearGradient
           colors={['#006885', '#0092BB']}
           style={styles.loginButtonGradient}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
         >
-          <Text style={styles.loginButtonText}>Login</Text>
+          <View style={styles.loginButtonContent}>
+            <Fingerprint color="#FFF" size={24} />
+            <Text style={styles.loginButtonText}>Login</Text>
+          </View>
         </LinearGradient>
       </TouchableOpacity>
+      <LoginModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </View>
   );
 };
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
   gradient: {
     position: 'absolute',
     top: 0,
-    bottom: '50%', 
+    bottom: '50%',
     left: 0,
     right: 0,
     flex: 1,
@@ -64,11 +72,11 @@ const styles = StyleSheet.create({
     left: 35,
     width: 80,
     height: 30,
-    margin: 10, 
+    margin: 10,
   },
   text: {
     position: 'absolute',
-    top: 150, 
+    top: 150,
     left: 45,
     color: 'white',
     fontSize: 14,
@@ -76,23 +84,23 @@ const styles = StyleSheet.create({
   },
   animation: {
     position: 'absolute',
-    top: '45%',
+    top: '46%',
     left: '70%',
-    marginLeft: -100, 
-    marginTop: -100, 
+    marginLeft: -100,
+    marginTop: -100,
   },
   text2: {
     position: 'absolute',
-    left: '10%', 
-    bottom: '37%', 
+    left: '10%',
+    bottom: '37%',
     color: 'black',
     fontWeight: 'bold',
   },
   loginButton: {
     position: 'absolute',
-    bottom: '10%',
+    bottom: '15%',
     left: '10%',
-    width: '80%', 
+    width: '80%',
     borderRadius: 5,
     overflow: 'hidden',
   },
@@ -102,10 +110,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  loginButtonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   loginButtonText: {
     color: '#FFF',
     fontSize: 16,
     fontWeight: 'bold',
+    marginLeft: 10,
   },
 });
 

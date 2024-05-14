@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const SplashScreen = () => {
- const navigation = useNavigation();
+  const navigation = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -12,6 +12,11 @@ const SplashScreen = () => {
     }, 3000); 
     return () => clearTimeout(timer);
   }, [navigation]);
+
+  // Get device width
+  const deviceWidth = Dimensions.get('window').width;
+  const deviceHeight = Dimensions.get('window').height;
+
 
   return (
     <LinearGradient
@@ -35,7 +40,8 @@ const SplashScreen = () => {
         <Text style={styles.textHak}>Hak Cipta © 2024 BNI Mobile Banking</Text>
         <Image
           source={require('../../../assets/images/wave.png')}
-          style={styles.imageWave}
+          style={[styles.imageWave, { width: deviceWidth, height: deviceHeight }]}
+          resizeMode="contain"
         />
       </View>
     </LinearGradient>
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
     width: 110,
     height: 100,
     position: 'absolute', 
-    bottom:95, 
+    bottom: 95, 
   },
   textHak: {
     color: 'white',
@@ -80,9 +86,8 @@ const styles = StyleSheet.create({
     transform: [{ translateY: -50 }],
   },
   imageWave: {
-    width: 400,
     position: 'absolute', 
-    bottom:0,
+    top: 350,
   },
 });
 
