@@ -26,73 +26,21 @@ const CardComponent = () => {
   }
 
   return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={true}
-      contentContainerStyle={{gap: 13}}
-    >
-      <View style={styles.cardContainer}>
-        <LinearGradient
-          colors={["#004F65", "#0092BB"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.background}
-        />
-        <View>
-          <View style={styles.logoBNIContainer}>
-            <Image
-              source={require("../../../assets/images/BNI_Splashscreen.png")}
-              style={styles.logoBNI}
-            />
-          </View>
-          <Text
-            style={{
-              color: "#FFFFFF",
-              fontFamily: "Poppins_500Medium",
-              fontSize: 10,
-            }}
-          >
-            Saldo Rekening
-          </Text>
-          <View style={styles.balanceContainer}>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              Rp
-            </Text>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              50.000
-            </Text>
-            <Eye
-              size={17}
-              color="#FFFFFF"
-              style={{ justifyContent: "center" }}
-            />
-          </View>
-        </View>
-        <View style={styles.textAndMasterCardContainer}>
+    <View>
+      <ScrollView horizontal contentContainerStyle={{ gap: 13, height: 174 }}>
+        <View style={styles.cardContainer}>
+          <LinearGradient
+            colors={["#004F65", "#0092BB"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.background}
+          />
           <View>
-            <View style={styles.textRekeningAndCopy}>
-              <Text
-                style={{
-                  color: "#FFFFFF",
-                  fontFamily: "Poppins_500Medium",
-                  fontSize: 12,
-                }}
-              >
-                16035553034
-              </Text>
-              <Copy size={15} color="#FFFFFF" />
+            <View style={styles.logoBNIContainer}>
+              <Image
+                source={require("../../../assets/images/BNI_Splashscreen.png")}
+                style={styles.logoBNI}
+              />
             </View>
             <Text
               style={{
@@ -101,77 +49,77 @@ const CardComponent = () => {
                 fontSize: 10,
               }}
             >
-              BNI Taplus Muda
+              Saldo Rekening
             </Text>
+            <View style={styles.balanceContainer}>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                Rp
+              </Text>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                50.000
+              </Text>
+              <Eye
+                size={17}
+                color="#FFFFFF"
+                style={{ justifyContent: "center" }}
+              />
+            </View>
           </View>
-          <Image
-            source={require("../../../assets/images/Mastercard-Logo 1.png")}
-            style={styles.logoMasterCard}
-          />
-        </View>
-      </View>
-      <View style={styles.cardContainer}>
-        <LinearGradient
-          colors={["#004F65", "#0092BB"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.background}
-        />
-        <View>
-          <View style={styles.logoBNIContainer}>
-            <Image
-              source={require("../../../assets/images/BNI_Splashscreen.png")}
-              style={styles.logoBNI}
-            />
-          </View>
-          <Text
-            style={{
-              color: "#FFFFFF",
-              fontFamily: "Poppins_500Medium",
-              fontSize: 10,
-            }}
-          >
-            Saldo Rekening
-          </Text>
-          <View style={styles.balanceContainer}>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              Rp
-            </Text>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              50.000
-            </Text>
-            <Eye
-              size={17}
-              color="#FFFFFF"
-              style={{ justifyContent: "center" }}
-            />
-          </View>
-        </View>
-        <View style={styles.textAndMasterCardContainer}>
-          <View>
-            <View style={styles.textRekeningAndCopy}>
+          <View style={styles.textAndMasterCardContainer}>
+            <View>
+              <View style={styles.textRekeningAndCopy}>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    fontFamily: "Poppins_500Medium",
+                    fontSize: 12,
+                  }}
+                >
+                  16035553034
+                </Text>
+                <Copy size={15} color="#FFFFFF" />
+              </View>
               <Text
                 style={{
                   color: "#FFFFFF",
                   fontFamily: "Poppins_500Medium",
-                  fontSize: 12,
+                  fontSize: 10,
                 }}
               >
-                16035553034
+                BNI Taplus Muda
               </Text>
-              <Copy size={15} color="#FFFFFF" />
+            </View>
+            <Image
+              source={require("../../../assets/images/Mastercard-Logo 1.png")}
+              style={styles.logoMasterCard}
+            />
+          </View>
+        </View>
+        <View style={styles.cardContainer}>
+          <LinearGradient
+            colors={["#004F65", "#0092BB"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.background}
+          />
+          <View>
+            <View style={styles.logoBNIContainer}>
+              <Image
+                source={require("../../../assets/images/BNI_Splashscreen.png")}
+                style={styles.logoBNI}
+              />
             </View>
             <Text
               style={{
@@ -180,77 +128,77 @@ const CardComponent = () => {
                 fontSize: 10,
               }}
             >
-              BNI Taplus Muda
+              Saldo Rekening
             </Text>
+            <View style={styles.balanceContainer}>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                Rp
+              </Text>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                50.000
+              </Text>
+              <Eye
+                size={17}
+                color="#FFFFFF"
+                style={{ justifyContent: "center" }}
+              />
+            </View>
           </View>
-          <Image
-            source={require("../../../assets/images/Mastercard-Logo 1.png")}
-            style={styles.logoMasterCard}
-          />
-        </View>
-      </View>
-      <View style={styles.cardContainer}>
-        <LinearGradient
-          colors={["#004F65", "#0092BB"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.background}
-        />
-        <View>
-          <View style={styles.logoBNIContainer}>
-            <Image
-              source={require("../../../assets/images/BNI_Splashscreen.png")}
-              style={styles.logoBNI}
-            />
-          </View>
-          <Text
-            style={{
-              color: "#FFFFFF",
-              fontFamily: "Poppins_500Medium",
-              fontSize: 10,
-            }}
-          >
-            Saldo Rekening
-          </Text>
-          <View style={styles.balanceContainer}>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              Rp
-            </Text>
-            <Text
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
-                fontSize: 20,
-              }}
-            >
-              50.000
-            </Text>
-            <Eye
-              size={17}
-              color="#FFFFFF"
-              style={{ justifyContent: "center" }}
-            />
-          </View>
-        </View>
-        <View style={styles.textAndMasterCardContainer}>
-          <View>
-            <View style={styles.textRekeningAndCopy}>
+          <View style={styles.textAndMasterCardContainer}>
+            <View>
+              <View style={styles.textRekeningAndCopy}>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    fontFamily: "Poppins_500Medium",
+                    fontSize: 12,
+                  }}
+                >
+                  16035553034
+                </Text>
+                <Copy size={15} color="#FFFFFF" />
+              </View>
               <Text
                 style={{
                   color: "#FFFFFF",
                   fontFamily: "Poppins_500Medium",
-                  fontSize: 12,
+                  fontSize: 10,
                 }}
               >
-                16035553034
+                BNI Taplus Muda
               </Text>
-              <Copy size={15} color="#FFFFFF" />
+            </View>
+            <Image
+              source={require("../../../assets/images/Mastercard-Logo 1.png")}
+              style={styles.logoMasterCard}
+            />
+          </View>
+        </View>
+        <View style={styles.cardContainer}>
+          <LinearGradient
+            colors={["#004F65", "#0092BB"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.background}
+          />
+          <View>
+            <View style={styles.logoBNIContainer}>
+              <Image
+                source={require("../../../assets/images/BNI_Splashscreen.png")}
+                style={styles.logoBNI}
+              />
             </View>
             <Text
               style={{
@@ -259,16 +207,66 @@ const CardComponent = () => {
                 fontSize: 10,
               }}
             >
-              BNI Taplus Muda
+              Saldo Rekening
             </Text>
+            <View style={styles.balanceContainer}>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                Rp
+              </Text>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                50.000
+              </Text>
+              <Eye
+                size={17}
+                color="#FFFFFF"
+                style={{ justifyContent: "center" }}
+              />
+            </View>
           </View>
-          <Image
-            source={require("../../../assets/images/Mastercard-Logo 1.png")}
-            style={styles.logoMasterCard}
-          />
+          <View style={styles.textAndMasterCardContainer}>
+            <View>
+              <View style={styles.textRekeningAndCopy}>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    fontFamily: "Poppins_500Medium",
+                    fontSize: 12,
+                  }}
+                >
+                  16035553034
+                </Text>
+                <Copy size={15} color="#FFFFFF" />
+              </View>
+              <Text
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Poppins_500Medium",
+                  fontSize: 10,
+                }}
+              >
+                BNI Taplus Muda
+              </Text>
+            </View>
+            <Image
+              source={require("../../../assets/images/Mastercard-Logo 1.png")}
+              style={styles.logoMasterCard}
+            />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

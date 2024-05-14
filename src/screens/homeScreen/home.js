@@ -3,6 +3,7 @@ import React from "react";
 import ProfileComponent from "./ProfileComponent";
 import { LinearGradient } from "expo-linear-gradient";
 import CardComponent from "./CardComponent";
+import MainFeatureComponent from "./MainFeatureComponent";
 
 const HomeScreen = () => {
   return (
@@ -15,6 +16,7 @@ const HomeScreen = () => {
       />
       <ProfileComponent />
       <CardComponent />
+      <MainFeatureComponent />
     </View>
   );
 };
