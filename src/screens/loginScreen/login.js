@@ -31,6 +31,14 @@ const LoginScreen = () => {
           resizeMode="contain"
         />
         <Text style={styles.text}>Selamat Datang,{"\n"}di Mobile Banking BNI!</Text>
+        <Image
+          source={require('../../../assets/images/Ellipse_top.png')}
+          style={styles.imageEllipseTop}
+        />
+        <Image
+          source={require('../../../assets/images/Ellipse_bottom.png')}
+          style={styles.imageEllipseBottom}
+        />
       </View>
       <Text style={styles.text2}>Menu Pintasan</Text>
       <ListMenuPintasan />
@@ -65,6 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative', // Tambahkan style position relative
   },
   imageTop: {
     position: 'absolute',
@@ -73,6 +82,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 30,
     margin: 10,
+    zIndex: 1, // Tambahkan zIndex agar gambar bisa menimpa yang lain
   },
   text: {
     position: 'absolute',
@@ -81,13 +91,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 14,
     textAlign: 'left',
+    zIndex: 1, // Tambahkan zIndex agar teks bisa menimpa yang lain
   },
   animation: {
     position: 'absolute',
     top: '46%',
-    left: '70%',
+    left: '65%',
     marginLeft: -100,
     marginTop: -100,
+    zIndex: 2
   },
   text2: {
     position: 'absolute',
@@ -119,6 +131,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 10,
+  },
+  imageEllipseTop: {
+    position: 'absolute',
+    top: 0,
+    left: 0, 
+    width: 180,
+    height: 210, 
+    zIndex: 1,
+  },
+  imageEllipseBottom: {
+    position: 'absolute',
+    bottom: -30,
+    right: 0, 
+    width: 100,
+    height: 110, 
+    zIndex: 1,
   },
 });
 
