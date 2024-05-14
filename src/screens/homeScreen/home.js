@@ -1,14 +1,39 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import ProfileComponent from "./ProfileComponent";
+import { LinearGradient } from "expo-linear-gradient";
+import CardComponent from "./CardComponent";
 
 const HomeScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>ini homePage</Text>
+    <View style={styles.container}>
+      <LinearGradient
+        colors={["#007DA0", "#0092BB"]}
+        style={styles.gradient}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      />
+      <ProfileComponent />
+      <CardComponent />
     </View>
-  )
-}
+  );
+};
 
-export default HomeScreen
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 16,
+    paddingTop: 48,
+    gap: 24
+  },
+  gradient: {
+    position: "absolute",
+    top: 0,
+    bottom: "50%",
+    left: 0,
+    right: 0,
+    flex: 1,
+  },
+});
 
-const styles = StyleSheet.create({})
+export default HomeScreen;
