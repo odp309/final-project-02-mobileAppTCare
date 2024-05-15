@@ -87,6 +87,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 23,
     paddingVertical: 14,
     marginHorizontal: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    elevation: 5,
   },
   secondContainer: {
     width: (windowWidth - 78) / 4,
