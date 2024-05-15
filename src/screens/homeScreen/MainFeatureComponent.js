@@ -15,6 +15,7 @@ import {
   Dimensions,
   FlatList,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 
 windowWidth = Dimensions.get("window").width;
@@ -47,7 +48,7 @@ const MainFeatureComponent = () => {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <ActivityIndicator size="large" />;
   }
 
   return (
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 23,
     paddingVertical: 14,
+    marginHorizontal: 16,
   },
   secondContainer: {
     width: (windowWidth - 78) / 4,

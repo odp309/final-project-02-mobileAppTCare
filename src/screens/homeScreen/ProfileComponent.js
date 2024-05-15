@@ -4,7 +4,7 @@ import {
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
 import { BellDot, User } from "lucide-react-native";
-import { Dimensions, StyleSheet, Text, View, processColor } from "react-native";
+import { ActivityIndicator, Dimensions, StyleSheet, Text, View, processColor } from "react-native";
 import AppLoading from "expo-app-loading";
 
 windowWidth = Dimensions.get("window").width;
@@ -16,7 +16,7 @@ const ProfileComponent = () => {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <ActivityIndicator size="large" />;
   }
 
   return (
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     width: windowWidth - 32,
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingHorizontal: 16,
   },
   profileContainer: {
     flexDirection: "row",

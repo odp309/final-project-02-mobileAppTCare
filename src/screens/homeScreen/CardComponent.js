@@ -13,6 +13,7 @@ import {
   StyleSheet,
   View,
   Text,
+  ActivityIndicator,
 } from "react-native";
 
 const CardComponent = () => {
@@ -22,12 +23,13 @@ const CardComponent = () => {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <ActivityIndicator size="large" />;
   }
 
   return (
     <View>
-      <ScrollView horizontal contentContainerStyle={{ gap: 13, height: 174 }}>
+      <ScrollView horizontal contentContainerStyle={{ gap: 13, height: 174, 
+    paddingHorizontal: 16, }}>
         <View style={styles.cardContainer}>
           <LinearGradient
             colors={["#004F65", "#0092BB"]}
@@ -279,6 +281,7 @@ const styles = StyleSheet.create({
     paddingBottom: 19,
     paddingLeft: 23,
     justifyContent: "space-between",
+    
   },
   background: {
     position: "absolute",

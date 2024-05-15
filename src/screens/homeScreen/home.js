@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import CardComponent from "./CardComponent";
 import MainFeatureComponent from "./MainFeatureComponent";
 import AdditionalFeaturesComponent from "./AdditionalFeaturesComponent";
+import BannerComponent from "./BannerComponent";
 
 const HomeScreen = () => {
   return (
@@ -19,6 +20,7 @@ const HomeScreen = () => {
       <CardComponent />
       <MainFeatureComponent />
       <AdditionalFeaturesComponent />
+      <BannerComponent />
     </View>
   );
 };
@@ -27,7 +29,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 16,
     paddingTop: 48,
     gap: 24,
   },

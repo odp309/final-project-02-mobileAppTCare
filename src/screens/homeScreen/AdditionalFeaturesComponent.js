@@ -1,3 +1,5 @@
+import { Poppins_500Medium, Poppins_700Bold } from "@expo-google-fonts/poppins";
+import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import {
   Bookmark,
@@ -11,6 +13,7 @@ import {
   icons,
 } from "lucide-react-native";
 import {
+  ActivityIndicator,
   Dimensions,
   FlatList,
   StyleSheet,
@@ -65,6 +68,14 @@ const data = [
 ];
 
 const AdditionalFeaturesComponent = () => {
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator size="large" />;
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -88,17 +99,15 @@ const AdditionalFeaturesComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: windowWidth - 62,
+    width: windowWidth,
+    paddingHorizontal: 16,
     alignSelf: "center",
-    justifyContent: 'center',
-    // backgroundColor: "#FFFFFF",
   },
   secondContainer: {
-    width: (windowWidth - 62) / 4,
-    gap: 5,
-    justifyContent: "center",
+    width: (windowWidth - 32) / 4,
     alignItems: "center",
-    paddingBottom: 15
+    paddingBottom: 15,
+    gap: 5,
   },
   iconContainer: {
     width: 50,
@@ -106,7 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#E4F9FF",
-    borderRadius: 15
+    borderRadius: 15,
   },
 });
 
