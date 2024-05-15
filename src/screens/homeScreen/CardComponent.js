@@ -26,7 +26,7 @@ const DATA = [
 
 const RenderCard = ({ item }) => {
   return (
-    <TouchableOpacity style={styles.cardContainer}>
+    <View style={styles.cardContainer}>
       <LinearGradient
         colors={["#004F65", "#0092BB"]}
         start={{ x: 0, y: 0 }}
@@ -68,7 +68,13 @@ const RenderCard = ({ item }) => {
           >
             {item.saldo}
           </Text>
-          <Eye size={17} color="#FFFFFF" style={{ justifyContent: "center" }} />
+          <TouchableOpacity>
+            <Eye
+              size={17}
+              color="#FFFFFF"
+              style={{ justifyContent: "center" }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.textAndMasterCardContainer}>
@@ -83,7 +89,9 @@ const RenderCard = ({ item }) => {
             >
               {item.noRek}
             </Text>
-            <Copy size={15} color="#FFFFFF" />
+            <TouchableOpacity>
+              <Copy size={15} color="#FFFFFF" />
+            </TouchableOpacity>
           </View>
           <Text
             style={{
@@ -100,7 +108,7 @@ const RenderCard = ({ item }) => {
           style={styles.logoMasterCard}
         />
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -156,9 +164,11 @@ const styles = StyleSheet.create({
   balanceContainer: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 4,
   },
   textRekeningAndCopy: {
     flexDirection: "row",
+    gap: 4,
   },
   textAndMasterCardContainer: {
     flexDirection: "row",
