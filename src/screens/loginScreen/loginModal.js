@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import { X } from 'lucide-react-native';
 
 const LoginModal = ({ modalVisible, setModalVisible }) => {
   const [username, setUsername] = useState('');
@@ -25,7 +26,7 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
           <TouchableWithoutFeedback>
             <View style={styles.modalContainer}>
               <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
-                <Text style={styles.closeButtonText}>X</Text>
+                <X color="#000" size={24} />
               </TouchableOpacity>
               <View style={styles.modalContent}>
                 <Text style={styles.modalTitle}>Login</Text>
@@ -79,10 +80,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
-  },
-  closeButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   modalContent: {
     width: '100%',

@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative', // Tambahkan style position relative
+    position: 'relative',
   },
   imageTop: {
     position: 'absolute',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 30,
     margin: 10,
-    zIndex: 1, // Tambahkan zIndex agar gambar bisa menimpa yang lain
+    zIndex: 1, 
   },
   text: {
     position: 'absolute',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 14,
     textAlign: 'left',
-    zIndex: 1, // Tambahkan zIndex agar teks bisa menimpa yang lain
+    zIndex: 1, 
   },
   animation: {
     position: 'absolute',
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     left: '10%',
     bottom: '37%',
     color: 'black',
+    fontSize: 17,
     fontWeight: 'bold',
   },
   loginButton: {
