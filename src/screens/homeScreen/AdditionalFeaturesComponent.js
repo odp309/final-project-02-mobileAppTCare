@@ -6,6 +6,7 @@ import {
   ChevronDown,
   CreditCard,
   Gift,
+  Goal,
   HandCoins,
   Target,
   TrendingUp,
@@ -33,7 +34,7 @@ const data = [
   {
     id: "2",
     title: "Life Goals",
-    icon: Target,
+    icon: Goal,
   },
   {
     id: "3",

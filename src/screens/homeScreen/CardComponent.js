@@ -25,11 +25,16 @@ const DATA = [
   { id: 4, saldo: 35000000, noRek: 19035553034, type: "BNI Private Bank" },
 ];
 
-const RenderCard = ({ item }) => {
+const RenderCard = ({ item, index }) => {
   const [showBalance, setShowBalance] = useState(false);
 
   return (
-    <View style={styles.cardContainer}>
+    <View
+      style={[
+        styles.cardContainer,
+        index === DATA.length - 1 && styles.lastCardContainer,
+      ]}
+    >
       <LinearGradient
         colors={["#004F65", "#0092BB"]}
         start={{ x: 0, y: 0 }}
@@ -139,11 +144,11 @@ const CardComponent = () => {
   }
 
   return (
-    <View style={{ gap: 13, height: 174, paddingHorizontal: 16 }}>
+    <View style={{ gap: 13, height: 174 }}>
       <FlatList
         horizontal={true}
         data={DATA}
-        renderItem={({ item }) => <RenderCard item={item} />}
+        renderItem={({ item, index }) => <RenderCard item={item} index={index} />}
         keyExtractor={(item) => item.id}
       />
     </View>
@@ -159,6 +164,9 @@ const styles = StyleSheet.create({
     paddingBottom: 19,
     paddingLeft: 23,
     justifyContent: "space-between",
+    marginLeft: 13,
+  },
+  lastCardContainer: {
     marginRight: 13,
   },
   background: {

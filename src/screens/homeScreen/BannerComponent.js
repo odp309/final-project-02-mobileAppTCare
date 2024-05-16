@@ -37,9 +37,16 @@ const DATA = [
 
 const windowWidth = Dimensions.get("window").width;
 
-const ImageBanner = ({ item }) => {
+const ImageBanner = ({ item, index }) => {
   return (
-    <TouchableOpacity style={styles.bannerContainer}>
+    <TouchableOpacity
+      style={
+        index === DATA.length - 1
+          ? styles.lastBannerContainer
+          : styles.bannerContainer
+      }
+      key={index}
+    >
       <Image source={item.banner} style={styles.imageBanner} />
     </TouchableOpacity>
   );
@@ -63,7 +70,9 @@ const BannerComponent = () => {
       <FlatList
         horizontal={true}
         data={DATA}
-        renderItem={({ item }) => <ImageBanner item={item} />}
+        renderItem={({ item, index }) => (
+          <ImageBanner item={item} index={index} />
+        )}
         keyExtractor={(item) => item.id}
       />
     </View>
@@ -74,9 +83,9 @@ const styles = StyleSheet.create({
   container: {
     width: windowWidth,
     gap: 8,
-    paddingHorizontal: 16,
   },
   textContainer: {
+    paddingLeft: 16,
     flexDirection: "row",
     gap: 4,
     alignItems: "center",
@@ -86,12 +95,17 @@ const styles = StyleSheet.create({
     color: "#333333",
     fontSize: 14,
   },
-  bannerContainer: {},
+  bannerContainer: {
+    paddingLeft: 16,
+  },
+  lastBannerContainer: {
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
   imageBanner: {
     width: 319,
     height: 116,
     resizeMode: "cover",
-    marginRight: 16,
   },
 });
 
