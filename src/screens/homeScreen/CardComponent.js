@@ -6,6 +6,7 @@ import {
 import AppLoading from "expo-app-loading";
 import { LinearGradient } from "expo-linear-gradient";
 import { Copy, Eye, IterationCcw } from "lucide-react-native";
+import { useState } from "react";
 import {
   FlatList,
   Image,
@@ -25,6 +26,8 @@ const DATA = [
 ];
 
 const RenderCard = ({ item }) => {
+  const [showBalance, setShowBalance] = useState(false);
+
   return (
     <View style={styles.cardContainer}>
       <LinearGradient
@@ -59,20 +62,33 @@ const RenderCard = ({ item }) => {
           >
             Rp
           </Text>
-          <Text
-            style={{
-              color: "#FFFFFF",
-              fontFamily: "Poppins_700Bold",
-              fontSize: 20,
-            }}
-          >
-            {item.saldo}
-          </Text>
+          {showBalance ? (
+            <Text
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Poppins_700Bold",
+                fontSize: 20,
+              }}
+            >
+              {item.saldo}
+            </Text>
+          ) : (
+            <Text
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Poppins_700Bold",
+                fontSize: 20,
+              }}
+            >
+              ***********
+            </Text>
+          )}
           <TouchableOpacity>
             <Eye
               size={17}
               color="#FFFFFF"
               style={{ justifyContent: "center" }}
+              onPress={() => setShowBalance(!showBalance)}
             />
           </TouchableOpacity>
         </View>
