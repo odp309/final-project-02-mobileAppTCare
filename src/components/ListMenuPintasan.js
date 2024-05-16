@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    marginHorizontal: 15,
+    marginHorizontal: 17,
   },
   button: {
     borderRadius: 15,
@@ -70,5 +70,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: '#000',
     textAlign: 'center',
+    fontSize: 13
   },
 });
