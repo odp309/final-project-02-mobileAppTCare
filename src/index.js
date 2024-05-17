@@ -3,9 +3,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "./screens/loginScreen/login.js";
-import HomeScreen from "./screens/homeScreen/home.js";
 import splashscreen from "./screens/splashScreen/splashscreen.js";
-import { Home } from "lucide-react-native";
+import TCare from "./screens/tCareScreen/tCare.js";
+import ButtonTabNavigator from "./components/BottomTabComponent.js";
 
 const Stack = createStackNavigator();
 
@@ -25,8 +25,12 @@ const AppSrc = () => {
         />
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={ButtonTabNavigator}
           options={{ headerLeft: null, headerShown: false }}
+        />
+        <Stack.Screen
+          name="TCare"
+          component={TCare}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,7 +1,6 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React from "react";
 import ProfileComponent from "./ProfileComponent";
-import { LinearGradient } from "expo-linear-gradient";
 import CardComponent from "./CardComponent";
 import MainFeatureComponent from "./MainFeatureComponent";
 import AdditionalFeaturesComponent from "./AdditionalFeaturesComponent";
@@ -10,12 +9,6 @@ import BannerComponent from "./BannerComponent";
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      {/* <LinearGradient
-        colors={["#007DA0", "#0092BB"]}
-        style={styles.gradient}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      /> */}
       <Image
         source={require("../../../assets/images/BackgroundHomeScreen.png")}
         style={styles.gradient}
@@ -39,9 +32,6 @@ const styles = StyleSheet.create({
   gradient: {
     position: "absolute",
     width: '100%',
-    // top: 0,
-    // left: 0,
-    // right: 0,
     flex: 1,
   },
 });
