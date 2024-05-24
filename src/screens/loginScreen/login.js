@@ -55,6 +55,7 @@ const LoginScreen = () => {
           </View>
         </LinearGradient>
       </TouchableOpacity>
+      <Text style={styles.appVersionText}>Version{"\n"}0.1.2.3</Text>
       <LoginModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </View>
   );
@@ -116,22 +117,31 @@ const styles = StyleSheet.create({
     width: '80%',
     borderRadius: 5,
     overflow: 'hidden',
+    borderRadius: 15,
   },
   loginButtonGradient: {
     padding: 15,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 15,
   },
   loginButtonContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderRadius: 15,
   },
   loginButtonText: {
     color: '#FFF',
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 10,
+  },
+  appVersionText: {
+    color: '#000000',
+    textAlign: 'center',
+    fontSize: 11,
+    bottom: 50,
   },
   imageEllipseTop: {
     position: 'absolute',

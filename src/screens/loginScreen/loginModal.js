@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { X } from 'lucide-react-native';
+import { X, User, LockKeyhole} from 'lucide-react-native';
 
 const LoginModal = ({ modalVisible, setModalVisible }) => {
   const [username, setUsername] = useState('');
@@ -30,12 +30,17 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
               </TouchableOpacity>
               <View style={styles.modalContent}>
                 <Text style={styles.modalTitle}>Login</Text>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Username"
-                  value={username}
-                  onChangeText={setUsername}
-                />
+                <View style={styles.inputContainer}>
+                  <User style={styles.icon}/>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Username"
+                    value={username}
+                    onChangeText={setUsername}
+                  />
+                </View>
+                <View style={styles.inputContainer}>
+                <LockKeyhole style={styles.icon}/>  
                 <TextInput
                   style={styles.input}
                   placeholder="Password"
@@ -43,6 +48,7 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
                   onChangeText={setPassword}
                   secureTextEntry
                 />
+                </View>
                 <TouchableOpacity style={styles.modalLoginButton} onPress={handleLogin}>
                   <LinearGradient
                     colors={['#006885', '#0092BB']}
@@ -53,6 +59,7 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
                     <Text style={styles.modalLoginButtonText}>Login</Text>
                   </LinearGradient>
                 </TouchableOpacity>
+                <Text style={styles.forgotPasswordText}>Lupa Username/Password?</Text>
               </View>
             </View>
           </TouchableWithoutFeedback>
@@ -86,34 +93,53 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalTitle: {
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: 15,
     fontWeight: 'bold',
+    color: "#006885",
   },
-  input: {
-    width: '100%',
-    padding: 10,
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center', 
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
-    marginBottom: 15,
+    paddingHorizontal: 10,
+    width: '100%',
+    borderRadius: 15,
+  },
+  input: {
+    flex:1,
+    height: 40,
+    color: "#858585",
+    fontSize: 13,
+  },
+  icon: {
+    color: "#A3A3A3",
+    marginRight: 10,
   },
   modalLoginButton: {
     width: '100%',
-    borderRadius: 5,
+    borderRadius: 15,
     overflow: 'hidden',
   },
   modalLoginButtonGradient: {
     padding: 15,
-    borderRadius: 5,
+    borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
   },
   modalLoginButtonText: {
     color: '#FFF',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
+  forgotPasswordText: {
+    color: "#006885",
+    marginTop: 20,
+    fontSize: 12,
+  }
 });
 
 export default LoginModal;
