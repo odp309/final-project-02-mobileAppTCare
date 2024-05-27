@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import tCare from '../screens/tCareScreen/tCare';
 import history from '../screens/historyScreen/history';
-import setting from '../screens/settingScreen/setting';
+import setting from '../screens/settingScreen/Settings';
 import Qr from '../screens/qrScreen/Qr';
 import HomeScreen from '../screens/homeScreen/home';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -119,7 +119,7 @@ const screenOptions = {
                   size={24}
                   color={focused ? "#007DA0" : "#4D4D4D"}
                 />
-                <Text style={{ fontSize: 12, color: "#000" }}>Setting</Text>
+                <Text style={{ fontSize: 12, color: "#000" }}>Pengaturan</Text>
               </View>
             ),
           }}
