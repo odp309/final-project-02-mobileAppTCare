@@ -29,40 +29,45 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
     return password.length >= 6;
   };
 
-  const handleLogin = async () => {
-    if (!validationUsername(username)) {
-      Alert.alert("Invalid Username", "Please enter a valid email address");
-      return;
-    }
+  // const handleLogin = async () => {
+  //   if (!validationUsername(username)) {
+  //     Alert.alert("Invalid Username", "Please enter a valid email address");
+  //     return;
+  //   }
 
-    if (!validationPassword(password)) {
-      Alert.alert("Invalid Password", "Password must be at least 6 characters");
-      return;
-    }
+  //   if (!validationPassword(password)) {
+  //     Alert.alert("Invalid Password", "Password must be at least 6 characters");
+  //     return;
+  //   }
 
-    try {
-      const result = await user_login({
-        username: username.toLowerCase(),
-        password: password,
-      });
+  //   try {
+  //     const result = await user_login({
+  //       username: username.toLowerCase(),
+  //       password: password,
+  //     });
 
-      console.log("Login response:", result.data.result.accessToken);
-      if (result.status === 200) {
-        const accessToken = result.data.result.accessToken;
-        if (accessToken) {
-          await AsyncStorage.setItem("AccessToken", accessToken);
-          setModalVisible(false);
-          navigation.navigate("Home");
-        } else {
-          Alert.alert("Login Failed", "No access token received");
-        }
-      } else {
-        Alert.alert("Login Failed", "Invalid username or password");
-      }
-    } catch (error) {
-      Alert.alert("Login Failed", "An error occurred during login");
-    }
-  };
+  //     console.log("Login response:", result.data.result.accessToken);
+  //     if (result.status === 200) {
+  //       const accessToken = result.data.result.accessToken;
+  //       if (accessToken) {
+  //         await AsyncStorage.setItem("AccessToken", accessToken);
+  //         setModalVisible(false);
+  //         navigation.navigate("Home");
+  //       } else {
+  //         Alert.alert("Login Failed", "No access token received");
+  //       }
+  //     } else {
+  //       Alert.alert("Login Failed", "Invalid username or password");
+  //     }
+  //   } catch (error) {
+  //     Alert.alert("Login Failed", "An error occurred during login");
+  //   }
+  // };
+
+  const handleLogin = () => {
+    setModalVisible(false);
+    navigation.navigate("Home");
+  } 
 
   return (
     <Modal
