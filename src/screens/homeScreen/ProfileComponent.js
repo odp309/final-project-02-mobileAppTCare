@@ -1,8 +1,3 @@
-import { useFonts } from "expo-font";
-import {
-  Poppins_500Medium,
-  Poppins_600SemiBold,
-} from "@expo-google-fonts/poppins";
 import { BellDot, User } from "lucide-react-native";
 import {
   ActivityIndicator,
@@ -13,17 +8,16 @@ import {
   processColor,
 } from "react-native";
 import AppLoading from "expo-app-loading";
+import poppinsFonts from "../../theme/fontPoppins";
 
 windowWidth = Dimensions.get("window").width;
 
 const ProfileComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-  });
+  
+  const fontsLoaded = poppinsFonts()
 
   if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
+    return null
   }
 
   return (
@@ -67,12 +61,12 @@ const styles = StyleSheet.create({
     borderRadius: 44,
   },
   selamatText: {
-    fontFamily: "Poppins_500Medium",
+    fontFamily: "poppinsMedium",
     fontSize: 12,
     color: "#FFFFFF",
   },
   namaText: {
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: "poppinsSemiBold",
     fontSize: 13,
     color: "#FFFFFF",
   },
