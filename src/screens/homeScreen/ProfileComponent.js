@@ -4,7 +4,14 @@ import {
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
 import { BellDot, User } from "lucide-react-native";
-import { ActivityIndicator, Dimensions, StyleSheet, Text, View, processColor } from "react-native";
+import {
+  ActivityIndicator,
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  processColor,
+} from "react-native";
 import AppLoading from "expo-app-loading";
 
 windowWidth = Dimensions.get("window").width;
@@ -42,12 +49,14 @@ const styles = StyleSheet.create({
     width: windowWidth - 32,
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingTop: 48,
     paddingHorizontal: 16,
+    paddingBottom: 18,
   },
   profileContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 14
+    gap: 14,
   },
   userContainer: {
     width: 44,
@@ -58,14 +67,14 @@ const styles = StyleSheet.create({
     borderRadius: 44,
   },
   selamatText: {
-    fontFamily: 'Poppins_500Medium',
+    fontFamily: "Poppins_500Medium",
     fontSize: 12,
-    color: '#FFFFFF'
+    color: "#FFFFFF",
   },
   namaText: {
-    fontFamily: 'Poppins_600SemiBold',
+    fontFamily: "Poppins_600SemiBold",
     fontSize: 13,
-    color: '#FFFFFF'
+    color: "#FFFFFF",
   },
   bellContainer: {
     justifyContent: "center",

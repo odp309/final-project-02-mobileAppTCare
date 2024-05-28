@@ -25,7 +25,7 @@ import {
 
 windowWidth = Dimensions.get("window").width;
 
-const data = [
+const data1 = [
   {
     id: "1",
     title: "Investasi",
@@ -46,6 +46,9 @@ const data = [
     title: "Bookmarks",
     icon: Bookmark,
   },
+];
+
+const data2 = [
   {
     id: "5",
     title: "Dikado",
@@ -80,8 +83,7 @@ const AdditionalFeaturesComponent = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        numColumns={4}
-        data={data}
+        data={data1}
         renderItem={({ item }) => (
           <View style={styles.secondContainer}>
             <TouchableOpacity style={styles.iconContainer}>
@@ -93,6 +95,22 @@ const AdditionalFeaturesComponent = () => {
           </View>
         )}
         keyExtractor={(item) => item.id}
+        horizontal
+      />
+      <FlatList
+        data={data2}
+        renderItem={({ item }) => (
+          <View style={styles.secondContainer}>
+            <TouchableOpacity style={styles.iconContainer}>
+              <item.icon color="#006885" size={22} />
+            </TouchableOpacity>
+            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+              {item.title}
+            </Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal
       />
     </View>
   );
