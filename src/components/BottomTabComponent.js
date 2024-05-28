@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import tCare from '../screens/tCareScreen/tCare';
 import history from '../screens/historyScreen/history';
-import setting from '../screens/settingScreen/Settings';
+import setting from '../screens/settingsScreen/Settings';
 import Qr from '../screens/qrScreen/Qr';
 import HomeScreen from '../screens/homeScreen/home';
 import { LinearGradient } from 'expo-linear-gradient';
