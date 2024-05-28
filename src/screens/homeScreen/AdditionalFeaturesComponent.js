@@ -89,7 +89,7 @@ const AdditionalFeaturesComponent = () => {
             <TouchableOpacity style={styles.iconContainer}>
               <item.icon color="#006885" size={22} />
             </TouchableOpacity>
-            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
               {item.title}
             </Text>
           </View>
@@ -104,7 +104,7 @@ const AdditionalFeaturesComponent = () => {
             <TouchableOpacity style={styles.iconContainer}>
               <item.icon color="#006885" size={22} />
             </TouchableOpacity>
-            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
               {item.title}
             </Text>
           </View>

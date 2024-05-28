@@ -66,7 +66,7 @@ const MainFeatureComponent = () => {
               />
               <item.icon color="#FFFFFF" size={22} />
             </TouchableOpacity>
-            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
               {item.title}
             </Text>
           </View>

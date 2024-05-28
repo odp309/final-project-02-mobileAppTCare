@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textStyle: {
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: "poppinsSemiBold",
     color: "#333333",
     fontSize: 14,
   },
