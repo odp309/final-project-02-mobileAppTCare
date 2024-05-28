@@ -13,7 +13,9 @@ const ListPengamanAkun = () => {
       <Text style={styles.sectionTitle}>Pengaman Akun</Text>
       {accountSecurityItems.map((item, index) => (
         <TouchableOpacity key={index} style={styles.itemContainer}>
-          <item.icon size={24} color="#007AFF" />
+          <View style={styles.iconContainer}>
+            <item.icon size={22} color="#006885" />
+          </View>
           <Text style={styles.itemText}>{item.title}</Text>
           <ChevronRight size={24} color="#007AFF" />
         </TouchableOpacity>
@@ -27,29 +29,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 10,
     paddingVertical: 10,
-    borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 15,
     marginBottom: 10,
-    color: '#333',
+    color: '#004F65',
+    fontWeight: 'bold',
   },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
   },
-  itemIcon: {
-    width: 24,
-    height: 24,
+  iconContainer: {
+    backgroundColor: '#E4F9FF',
+    padding: 10,
+    borderRadius: 8,
+    marginRight: 15,
   },
   itemText: {
     flex: 1,
-    marginLeft: 15,
-    fontSize: 16,
+    fontSize: 13,
     color: '#333',
   },
 });

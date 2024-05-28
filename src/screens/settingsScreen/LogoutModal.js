@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Modal, StyleSheet, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const LogoutModal = ({ visible, onClose }) => {
   return (
@@ -19,9 +20,14 @@ const LogoutModal = ({ visible, onClose }) => {
             <TouchableOpacity style={styles.button} onPress={onClose}>
               <Text style={styles.buttonText}>Tidak</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, styles.confirmButton]} onPress={onClose}>
-              <Text style={styles.buttonText}>Ya</Text>
-            </TouchableOpacity>
+            <LinearGradient
+              colors={['#006885', '#0092BB']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={[styles.button, styles.confirmButton]}
+            >
+              <Text style={[styles.buttonText, styles.confirmButtonText]}>Ya</Text>
+            </LinearGradient>
           </View>
         </View>
       </View>
@@ -40,18 +46,20 @@ const styles = StyleSheet.create({
     width: '80%',
     backgroundColor: '#fff',
     borderRadius: 10,
-    padding: 20,
+    padding: 30,
     alignItems: 'center',
   },
   modalTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#006885',
   },
   modalMessage: {
-    fontSize: 14,
+    fontSize: 11,
     textAlign: 'center',
     marginBottom: 20,
+    color: '#858585',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -65,13 +73,24 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#007AFF',
+    borderColor: '#006885',
   },
   confirmButton: {
-    backgroundColor: '#007AFF',
+    flex: 1,
+    borderRadius: 5,
+    marginHorizontal: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#007AFF',
+    color: '#006885',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+  confirmButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 12,
   },
 });
 
