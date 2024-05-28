@@ -27,7 +27,6 @@ const DATA = [
 ];
 
 const RenderCard = ({ item, index }) => {
-  usePoppinsFonts();
 
   const [showBalance, setShowBalance] = useState(false);
 
@@ -137,14 +136,7 @@ const RenderCard = ({ item, index }) => {
 };
 
 const CardComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_700Bold,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
-  }
+  usePoppinsFonts();
 
   return (
     <View style={{ gap: 13, height: 174 }}>
