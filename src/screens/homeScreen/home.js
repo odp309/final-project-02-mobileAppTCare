@@ -1,4 +1,10 @@
-import { Image, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
 import React from "react";
 import ProfileComponent from "./ProfileComponent";
 import CardComponent from "./CardComponent";
@@ -10,14 +16,23 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../../assets/images/BackgroundHomeScreen.png")}
-        style={styles.gradient}
+        source={require("../../../assets/images/BackgroundProfileHomeScreen.png")}
+        resizeMode="cover"
+        style={styles.imageBackground}
       />
       <ProfileComponent />
-      <CardComponent />
-      <MainFeatureComponent />
-      <AdditionalFeaturesComponent />
-      <BannerComponent />
+      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
+        <View style={styles.containerScroll}>
+          <Image
+            source={require("../../../assets/images/BackgroundCardHomeScreen.png")}
+            style={styles.imageBackground}
+          />
+          <CardComponent />
+          <MainFeatureComponent />
+          <AdditionalFeaturesComponent />
+          <BannerComponent />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -25,13 +40,14 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
-    paddingTop: 48,
-    gap: 24,
   },
-  gradient: {
+  containerScroll: {
+    backgroundColor: "#FFFFFF",
+    gap: 20,
+  },
+  imageBackground: {
     position: "absolute",
-    width: '100%',
+    width: "100%",
     flex: 1,
   },
 });
