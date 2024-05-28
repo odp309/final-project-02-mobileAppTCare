@@ -16,36 +16,51 @@ import { user_login } from "../../apiManager/user_api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginModal = ({ modalVisible, setModalVisible }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin");
+  const [password, setPassword] = useState("123456");
   const navigation = useNavigation();
 
   const validationUsername = (username) => {
-    const usernameRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const usernameRegex = new RegExp("^\\w[\\w.]{2,18}\\w$");
     return usernameRegex.test(username);
   };
 
-  const validatioPassword = (password) => {
+  const validationPassword = (password) => {
     return password.length >= 6;
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!validationUsername(username)) {
-      Alert.alert("Invakid Username", "Please enter a valid username");
-    } else if (!validatioPassword(password)) {
+      Alert.alert("Invalid Username", "Please enter a valid email address");
+      return;
+    }
+
+    if (!validationPassword(password)) {
       Alert.alert("Invalid Password", "Password must be at least 6 characters");
-    } else {
-      user_login({
-        username: username,
+      return;
+    }
+
+    try {
+      const result = await user_login({
+        username: username.toLowerCase(),
         password: password,
-      }).then((result) => {
-        console.log(result);
-        if (result.status == 200) {
-          AsyncStorage.setItem("AccessToken", result.data);
-          setModalVisible(!modalVisible);
-          navigation.navigate("Home");
-        }
       });
+
+      console.log("Login response:", result.data.result.accessToken);
+      if (result.status === 200) {
+        const accessToken = result.data.result.accessToken;
+        if (accessToken) {
+          await AsyncStorage.setItem("AccessToken", accessToken);
+          setModalVisible(false);
+          navigation.navigate("Home");
+        } else {
+          Alert.alert("Login Failed", "No access token received");
+        }
+      } else {
+        Alert.alert("Login Failed", "Invalid username or password");
+      }
+    } catch (error) {
+      Alert.alert("Login Failed", "An error occurred during login");
     }
   };
 
