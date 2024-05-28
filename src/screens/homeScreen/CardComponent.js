@@ -17,7 +17,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from "react-native";
-import poppinsFonts from "../../theme/fontPoppins";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 const DATA = [
   { id: 1, saldo: 5000000, noRek: 16035553034, type: "BNI Taplus Muda" },
@@ -27,7 +27,7 @@ const DATA = [
 ];
 
 const RenderCard = ({ item, index }) => {
-  poppinsFonts();
+  usePoppinsFonts();
 
   const [showBalance, setShowBalance] = useState(false);
 

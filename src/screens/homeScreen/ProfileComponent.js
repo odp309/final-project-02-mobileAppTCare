@@ -7,18 +7,12 @@ import {
   View,
   processColor,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import poppinsFonts from "../../theme/fontPoppins";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 windowWidth = Dimensions.get("window").width;
 
 const ProfileComponent = () => {
-  
-  const fontsLoaded = poppinsFonts()
-
-  if (!fontsLoaded) {
-    return null
-  }
+  usePoppinsFonts();
 
   return (
     <View style={styles.container}>
