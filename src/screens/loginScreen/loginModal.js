@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -8,17 +8,34 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Alert,
+  Animated
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { X, User, LockKeyhole } from "lucide-react-native";
-import { user_login } from "../../apiManager/user_api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginModal = ({ modalVisible, setModalVisible }) => {
   const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("123456");
   const navigation = useNavigation();
+  const overlayOpacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (modalVisible) {
+      Animated.timing(overlayOpacity, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.timing(overlayOpacity, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [modalVisible, overlayOpacity]);
 
   const validationUsername = (username) => {
     const usernameRegex = new RegExp("^\\w[\\w.]{2,18}\\w$");
@@ -29,115 +46,119 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
     return password.length >= 6;
   };
 
-  // const handleLogin = async () => {
-  //   if (!validationUsername(username)) {
-  //     Alert.alert("Invalid Username", "Please enter a valid email address");
-  //     return;
-  //   }
+  const handleLogin = async () => {
+    if (!validationUsername(username)) {
+      Alert.alert("Invalid Username", "Please enter a valid username");
+      return;
+    }
 
-  //   if (!validationPassword(password)) {
-  //     Alert.alert("Invalid Password", "Password must be at least 6 characters");
-  //     return;
-  //   }
+    if (!validationPassword(password)) {
+      Alert.alert("Invalid Password", "Password must be at least 6 characters");
+      return;
+    }
 
-  //   try {
-  //     const result = await user_login({
-  //       username: username.toLowerCase(),
-  //       password: password,
-  //     });
+    try {
+      // Simulate API call
+      const result = { status: 200, data: { result: { accessToken: "dummyAccessToken" } } };
 
-  //     console.log("Login response:", result.data.result.accessToken);
-  //     if (result.status === 200) {
-  //       const accessToken = result.data.result.accessToken;
-  //       if (accessToken) {
-  //         await AsyncStorage.setItem("AccessToken", accessToken);
-  //         setModalVisible(false);
-  //         navigation.navigate("Home");
-  //       } else {
-  //         Alert.alert("Login Failed", "No access token received");
-  //       }
-  //     } else {
-  //       Alert.alert("Login Failed", "Invalid username or password");
-  //     }
-  //   } catch (error) {
-  //     Alert.alert("Login Failed", "An error occurred during login");
-  //   }
-  // };
-
-  const handleLogin = () => {
-    setModalVisible(false);
-    navigation.navigate("Home");
-  } 
+      console.log("Login response:", result.data.result.accessToken);
+      if (result.status === 200) {
+        const accessToken = result.data.result.accessToken;
+        if (accessToken) {
+          await AsyncStorage.setItem("AccessToken", accessToken);
+          setModalVisible(false);
+          navigation.navigate("Home");
+        } else {
+          Alert.alert("Login Failed", "No access token received");
+        }
+      } else {
+        Alert.alert("Login Failed", "Invalid username or password");
+      }
+    } catch (error) {
+      Alert.alert("Login Failed", "An error occurred during login");
+    }
+  };
 
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => setModalVisible(false)}
-    >
-      <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-        <View style={styles.modalOverlay}>
-          <TouchableWithoutFeedback>
-            <View style={styles.modalContainer}>
-              <TouchableOpacity
-                style={styles.closeButton}
-                onPress={() => setModalVisible(false)}
-              >
-                <X color="#000" size={24} />
-              </TouchableOpacity>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Login</Text>
-                <View style={styles.inputContainer}>
-                  <User style={styles.icon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Username"
-                    value={username}
-                    onChangeText={setUsername}
-                  />
-                </View>
-                <View style={styles.inputContainer}>
-                  <LockKeyhole style={styles.icon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Password"
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry
-                  />
-                </View>
+    <>
+      <Animated.View style={[styles.overlay, { opacity: overlayOpacity }]} pointerEvents={modalVisible ? 'auto' : 'none'} />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+          <View style={styles.modalOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.modalContainer}>
                 <TouchableOpacity
-                  style={styles.modalLoginButton}
-                  onPress={handleLogin}
+                  style={styles.closeButton}
+                  onPress={() => setModalVisible(false)}
                 >
-                  <LinearGradient
-                    colors={["#006885", "#0092BB"]}
-                    style={styles.modalLoginButtonGradient}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                  >
-                    <Text style={styles.modalLoginButtonText}>Login</Text>
-                  </LinearGradient>
+                  <X color="#000" size={24} />
                 </TouchableOpacity>
-                <Text style={styles.forgotPasswordText}>
-                  Lupa Username/Password?
-                </Text>
+                <View style={styles.modalContent}>
+                  <Text style={styles.modalTitle}>Login</Text>
+                  <View style={styles.inputContainer}>
+                    <User style={styles.icon} />
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Username"
+                      value={username}
+                      onChangeText={setUsername}
+                    />
+                  </View>
+                  <View style={styles.inputContainer}>
+                    <LockKeyhole style={styles.icon} />
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Password"
+                      value={password}
+                      onChangeText={setPassword}
+                      secureTextEntry
+                    />
+                  </View>
+                  <TouchableOpacity
+                    style={styles.modalLoginButton}
+                    onPress={handleLogin}
+                  >
+                    <LinearGradient
+                      colors={["#006885", "#0092BB"]}
+                      style={styles.modalLoginButtonGradient}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 1 }}
+                    >
+                      <Text style={styles.modalLoginButtonText}>Login</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                  <Text style={styles.forgotPasswordText}>
+                    Lupa Username/Password?
+                  </Text>
+                </View>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      </TouchableWithoutFeedback>
-    </Modal>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1,
+  },
   modalOverlay: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modalContainer: {
     width: 300,
@@ -162,8 +183,8 @@ const styles = StyleSheet.create({
     color: "#006885",
   },
   inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
     borderWidth: 1,
     borderColor: "#ccc",
@@ -173,6 +194,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   input: {
+    flex: 1,
     flex: 1,
     height: 40,
     color: "#858585",
@@ -206,3 +228,4 @@ const styles = StyleSheet.create({
 });
 
 export default LoginModal;
+
