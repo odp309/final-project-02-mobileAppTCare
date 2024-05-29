@@ -28,7 +28,7 @@ const SettingsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <HeaderComponent TextHeader="Pengaturan" Type='withIcon' IconColor='#000' />
+      <HeaderComponent TextHeader="Pengaturan"/>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <ProfileComponent />
         <ListKartudanTransaksional />
