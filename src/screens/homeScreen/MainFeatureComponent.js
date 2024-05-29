@@ -17,6 +17,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 windowWidth = Dimensions.get("window").width;
 
@@ -43,13 +44,7 @@ const data = [
 ];
 
 const MainFeatureComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
-  }
+  usePoppinsFonts();
 
   return (
     <View style={styles.container}>
@@ -66,7 +61,7 @@ const MainFeatureComponent = () => {
               />
               <item.icon color="#FFFFFF" size={22} />
             </TouchableOpacity>
-            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
               {item.title}
             </Text>
           </View>
@@ -87,7 +82,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 23,
     paddingVertical: 14,
     marginHorizontal: 16,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 3,

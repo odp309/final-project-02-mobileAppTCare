@@ -15,6 +15,7 @@ import {
   Dimensions,
   ActivityIndicator,
 } from "react-native";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 const DATA = [
   {
@@ -53,13 +54,7 @@ const ImageBanner = ({ item, index }) => {
 };
 
 const BannerComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_600SemiBold,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
-  }
+  usePoppinsFonts();
 
   return (
     <View style={styles.container}>
@@ -91,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textStyle: {
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: "poppinsSemiBold",
     color: "#333333",
     fontSize: 14,
   },

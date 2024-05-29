@@ -17,6 +17,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from "react-native";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 const DATA = [
   { id: 1, saldo: 5000000, noRek: 16035553034, type: "BNI Taplus Muda" },
@@ -26,6 +27,7 @@ const DATA = [
 ];
 
 const RenderCard = ({ item, index }) => {
+
   const [showBalance, setShowBalance] = useState(false);
 
   return (
@@ -51,7 +53,7 @@ const RenderCard = ({ item, index }) => {
         <Text
           style={{
             color: "#FFFFFF",
-            fontFamily: "Poppins_500Medium",
+            fontFamily: "poppinsMedium",
             fontSize: 10,
           }}
         >
@@ -61,7 +63,7 @@ const RenderCard = ({ item, index }) => {
           <Text
             style={{
               color: "#FFFFFF",
-              fontFamily: "Poppins_700Bold",
+              fontFamily: "poppinsBold",
               fontSize: 20,
             }}
           >
@@ -71,7 +73,7 @@ const RenderCard = ({ item, index }) => {
             <Text
               style={{
                 color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
+                fontFamily: "poppinsBold",
                 fontSize: 20,
               }}
             >
@@ -81,7 +83,7 @@ const RenderCard = ({ item, index }) => {
             <Text
               style={{
                 color: "#FFFFFF",
-                fontFamily: "Poppins_700Bold",
+                fontFamily: "poppinsBold",
                 fontSize: 20,
               }}
             >
@@ -104,7 +106,7 @@ const RenderCard = ({ item, index }) => {
             <Text
               style={{
                 color: "#FFFFFF",
-                fontFamily: "Poppins_500Medium",
+                fontFamily: "poppinsMedium",
                 fontSize: 12,
               }}
             >
@@ -117,7 +119,7 @@ const RenderCard = ({ item, index }) => {
           <Text
             style={{
               color: "#FFFFFF",
-              fontFamily: "Poppins_500Medium",
+              fontFamily: "poppinsMedium",
               fontSize: 10,
             }}
           >
@@ -134,21 +136,16 @@ const RenderCard = ({ item, index }) => {
 };
 
 const CardComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_700Bold,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
-  }
+  usePoppinsFonts();
 
   return (
     <View style={{ gap: 13, height: 174 }}>
       <FlatList
         horizontal={true}
         data={DATA}
-        renderItem={({ item, index }) => <RenderCard item={item} index={index} />}
+        renderItem={({ item, index }) => (
+          <RenderCard item={item} index={index} />
+        )}
         keyExtractor={(item) => item.id}
       />
     </View>
