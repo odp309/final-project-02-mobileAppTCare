@@ -10,10 +10,10 @@ import {
   Alert,
   Animated
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { X, User, LockKeyhole } from "lucide-react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { PrimaryButton } from "../../components/Button";
 
 const LoginModal = ({ modalVisible, setModalVisible }) => {
   const [username, setUsername] = useState("admin");
@@ -119,19 +119,10 @@ const LoginModal = ({ modalVisible, setModalVisible }) => {
                       secureTextEntry
                     />
                   </View>
-                  <TouchableOpacity
-                    style={styles.modalLoginButton}
+                  <PrimaryButton
                     onPress={handleLogin}
-                  >
-                    <LinearGradient
-                      colors={["#006885", "#0092BB"]}
-                      style={styles.modalLoginButtonGradient}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 1 }}
-                    >
-                      <Text style={styles.modalLoginButtonText}>Login</Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                    text="Login"
+                  />
                   <Text style={styles.forgotPasswordText}>
                     Lupa Username/Password?
                   </Text>
