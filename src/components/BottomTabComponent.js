@@ -60,7 +60,7 @@ const screenOptions = {
     return (
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
-          name="Home"
+          name="Beranda"
           component={HomeScreen}
           options={{
             tabBarIcon: ({ focused }) => (

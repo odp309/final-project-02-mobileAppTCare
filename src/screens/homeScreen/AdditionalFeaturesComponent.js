@@ -22,10 +22,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import usePoppinsFonts from "../../theme/fontPoppins";
 
 windowWidth = Dimensions.get("window").width;
 
-const data = [
+const data1 = [
   {
     id: "1",
     title: "Investasi",
@@ -46,6 +47,9 @@ const data = [
     title: "Bookmarks",
     icon: Bookmark,
   },
+];
+
+const data2 = [
   {
     id: "5",
     title: "Dikado",
@@ -69,30 +73,39 @@ const data = [
 ];
 
 const AdditionalFeaturesComponent = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" />;
-  }
+  usePoppinsFonts();
 
   return (
     <View style={styles.container}>
       <FlatList
-        numColumns={4}
-        data={data}
+        data={data1}
         renderItem={({ item }) => (
           <View style={styles.secondContainer}>
             <TouchableOpacity style={styles.iconContainer}>
               <item.icon color="#006885" size={22} />
             </TouchableOpacity>
-            <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 11 }}>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
               {item.title}
             </Text>
           </View>
         )}
         keyExtractor={(item) => item.id}
+        horizontal
+      />
+      <FlatList
+        data={data2}
+        renderItem={({ item }) => (
+          <View style={styles.secondContainer}>
+            <TouchableOpacity style={styles.iconContainer}>
+              <item.icon color="#006885" size={22} />
+            </TouchableOpacity>
+            <Text style={{ fontFamily: "poppinsMedium", fontSize: 11 }}>
+              {item.title}
+            </Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal
       />
     </View>
   );
