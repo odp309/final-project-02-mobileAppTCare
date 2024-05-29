@@ -162,24 +162,24 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: 300,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     padding: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   closeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 10,
     right: 10,
   },
   modalContent: {
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
   },
   modalTitle: {
     fontSize: 16,
     marginBottom: 15,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "#006885",
   },
   inputContainer: {
@@ -187,13 +187,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 5,
     paddingHorizontal: 10,
-    width: '100%',
+    width: "100%",
     borderRadius: 15,
   },
   input: {
+    flex: 1,
     flex: 1,
     height: 40,
     color: "#858585",
@@ -204,26 +205,27 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   modalLoginButton: {
-    width: '100%',
+    width: "100%",
     borderRadius: 15,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   modalLoginButtonGradient: {
     padding: 15,
     borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   modalLoginButtonText: {
-    color: '#FFF',
+    color: "#FFF",
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   forgotPasswordText: {
     color: "#006885",
     marginTop: 20,
     fontSize: 12,
-  }
+  },
 });
 
 export default LoginModal;
+
