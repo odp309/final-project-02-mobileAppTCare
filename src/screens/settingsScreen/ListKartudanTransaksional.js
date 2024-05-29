@@ -15,12 +15,12 @@ const ListKartudanTransaksional = () => {
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Kartu dan Transaksional</Text>
       {menuItems.map((item, index) => (
-        <TouchableOpacity key={index} style={styles.itemContainer}>
+        <TouchableOpacity key={index} style={[styles.itemContainer, index !== menuItems.length - 1 && {paddingBottom: 16}]}>
           <View style={styles.iconContainer}>
-            <item.icon size={22} color="#006885" />
+            <item.icon size={20} color="#006885" />
           </View>
           <Text style={styles.itemText}>{item.title}</Text>
-          <ChevronRight size={24} color="#007AFF" />
+          <ChevronRight size={24} color="#007DA0" />
         </TouchableOpacity>
       ))}
     </View>
@@ -31,29 +31,29 @@ const styles = StyleSheet.create({
   section: {
     backgroundColor: '#fff',
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingTop: 23,
   },
   sectionTitle: {
     fontSize: 15,
-    marginBottom: 10,
+    marginBottom: 17,
     color: '#004F65',
-    fontWeight: 'bold',
+    fontFamily: 'poppinsSemiBold'
   },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 15,
   },
   iconContainer: {
     backgroundColor: '#E4F9FF',
-    padding: 10,
-    borderRadius: 8,
-    marginRight: 15,
+    padding: 9,
+    borderRadius: 10,
+    marginRight: 26,
   },
   itemText: {
     flex: 1,
     fontSize: 13,
     color: '#333',
+    fontFamily: 'poppinsMedium'
   },
 });
 
