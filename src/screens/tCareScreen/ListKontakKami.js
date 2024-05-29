@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Linking } from 'react-native';
-import { PhoneCall, MessageCircle, Mail, Instagram, Twitter, ChevronRight } from 'lucide-react-native';
+import { PhoneCall, Mail, Inbox, Instagram, Twitter, ChevronRight } from 'lucide-react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const ListKontakKami = () => {
   const contactItems = [
     { title: '1500046', description: 'Layanan Telepon', icon: PhoneCall, url: 'tel:1500046' },
-    { title: '0821 30500046', description: 'Layanan SMS', icon: MessageCircle, url: 'sms:082130500046' },
-    { title: 'bnicall.bni.co.id', description: 'Email', icon: Mail, url: 'mailto:bnicall.bni.co.id' },
+    { title: '0821 30500046', description: 'Layanan SMS', icon: Mail, url: 'sms:0821 30500046' },
+    { title: 'bnicall.bni.co.id', description: 'Email', icon: Inbox, url: 'mailto:bnicall.bni.co.id' },
     { title: '@bni_46', description: 'Instagram', icon: Instagram, url: 'https://instagram.com/bni_46' },
     { title: '@BNICustomerCare', description: 'Twitter', icon: Twitter, url: 'https://twitter.com/BNICustomerCare' },
   ];
@@ -16,7 +17,14 @@ const ListKontakKami = () => {
       <Text style={styles.sectionTitle}>Kontak Kami</Text>
       {contactItems.map((item, index) => (
         <TouchableOpacity key={index} style={styles.contactCard} onPress={() => Linking.openURL(item.url)}>
-          <item.icon size={24} color="#006885" />
+          <LinearGradient
+            colors={['#E4F9FF', '#E4F9FF']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.iconContainer}
+          >
+            <item.icon size={24} color="#006885" />
+          </LinearGradient>
           <View style={styles.contactTextContainer}>
             <Text style={styles.contactText}>{item.title}</Text>
             <Text style={styles.contactDescription}>{item.description}</Text>
@@ -34,10 +42,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#006885',
+    color: '#004F65',
   },
   contactCard: {
     flexDirection: 'row',
@@ -45,18 +53,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 15,
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 7,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  iconContainer: {
+    padding: 10,
+    borderRadius: 8,
+    marginRight: 15,
   },
   contactTextContainer: {
     flex: 1,
   },
   contactText: {
-    fontSize: 16,
+    fontSize: 15,
+    fontWeight: 'bold',
     color: '#333',
   },
   contactDescription: {
-    fontSize: 14,
+    fontSize: 10,
     color: '#666',
+    marginTop: 7,
   },
 });
 

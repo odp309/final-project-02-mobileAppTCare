@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 15,
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 7,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   cardDescription: {
     fontSize: 10,
     color: '#666',
+    marginTop: 7, 
   },
 });
 

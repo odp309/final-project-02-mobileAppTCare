@@ -11,7 +11,7 @@ const TCare = () => {
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <ListPengaduan />
-        {/* <ListKontakKami /> */}
+        <ListKontakKami />
       </ScrollView>
     </View>
   );
