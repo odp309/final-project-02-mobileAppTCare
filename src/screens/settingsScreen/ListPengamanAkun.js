@@ -1,23 +1,29 @@
-import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { KeyRound, RectangleEllipsis, ChevronRight } from 'lucide-react-native';
+import React from "react";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { KeyRound, RectangleEllipsis, ChevronRight } from "lucide-react-native";
 
 const ListPengamanAkun = () => {
   const accountSecurityItems = [
-    { title: 'Ubah MPIN', icon: RectangleEllipsis },
-    { title: 'Password Transaksi', icon: KeyRound },
+    { title: "Ubah MPIN", icon: RectangleEllipsis },
+    { title: "Password Transaksi", icon: KeyRound },
   ];
 
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Pengaman Akun</Text>
       {accountSecurityItems.map((item, index) => (
-        <TouchableOpacity key={index} style={styles.itemContainer}>
+        <TouchableOpacity
+          key={index}
+          style={[
+            styles.itemContainer,
+            index !== accountSecurityItems.length - 1 && { paddingBottom: 16 },
+          ]}
+        >
           <View style={styles.iconContainer}>
-            <item.icon size={22} color="#006885" />
+            <item.icon size={20} color="#006885" />
           </View>
           <Text style={styles.itemText}>{item.title}</Text>
-          <ChevronRight size={24} color="#007AFF" />
+          <ChevronRight size={24} color="#007DA0" />
         </TouchableOpacity>
       ))}
     </View>
@@ -26,31 +32,31 @@ const ListPengamanAkun = () => {
 
 const styles = StyleSheet.create({
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingTop: 23,
   },
   sectionTitle: {
     fontSize: 15,
-    marginBottom: 10,
-    color: '#004F65',
-    fontWeight: 'bold',
+    marginBottom: 17,
+    color: "#004F65",
+    fontFamily: "poppinsSemiBold",
   },
   itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 15,
+    flexDirection: "row",
+    alignItems: "center",
   },
   iconContainer: {
-    backgroundColor: '#E4F9FF',
-    padding: 10,
-    borderRadius: 8,
-    marginRight: 15,
+    backgroundColor: "#E4F9FF",
+    padding: 9,
+    borderRadius: 10,
+    marginRight: 26,
   },
   itemText: {
     flex: 1,
     fontSize: 13,
-    color: '#333',
+    color: "#333",
+    fontFamily: "poppinsMedium",
   },
 });
 
