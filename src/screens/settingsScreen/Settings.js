@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     flex: 1,
-    paddingHorizontal: 15,
   },
   scrollViewContent: {
     flexGrow: 1,
     paddingBottom: 100,
+    paddingHorizontal: 15,
   },
   logoutButton: {
     paddingVertical: 15,
