@@ -56,19 +56,6 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
     paddingHorizontal: 15,
   },
-  logoutButton: {
-    paddingVertical: 15,
-    alignItems: "center",
-    borderRadius: 25,
-    marginHorizontal: 20,
-    marginTop: 20,
-    marginBottom: 50,
-  },
-  logoutButtonText: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "bold",
-  },
 });
 
 export default SettingsScreen;
