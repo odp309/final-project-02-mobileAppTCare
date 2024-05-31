@@ -14,6 +14,7 @@ import LogoutModal from "./LogoutModal.js";
 import { LinearGradient } from "expo-linear-gradient";
 import HeaderComponent from "../../components/HeaderComponent.js";
 import ProfileComponent from "./ProfileComponentSettingPage.js";
+import { SecondaryButton } from "../../components/Button.js";
 
 const SettingsScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,17 +34,12 @@ const SettingsScreen = () => {
         <ProfileComponent />
         <ListKartudanTransaksional />
         <ListPengamanAkun />
-
-        <LinearGradient
+          
+        <SecondaryButton
+          onPress={handleLogoutPress}
+          text={"Logout"}
           colors={["#F24538", "#F56A60"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.logoutButton}
-        >
-          <TouchableOpacity onPress={handleLogoutPress}>
-            <Text style={styles.logoutButtonText}>Log Out</Text>
-          </TouchableOpacity>
-        </LinearGradient>
+        />
         <LogoutModal visible={modalVisible} onClose={handleCloseModal} />
       </ScrollView>
     </View>

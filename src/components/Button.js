@@ -18,16 +18,17 @@ const PrimaryButton = ({ onPress, text, colors, style }) => {
   );
 };
 
-const SecondaryButton = ({ onPress, text, style }) => {
+const SecondaryButton = ({ onPress, text, colors, style }) => {
   return (
     <TouchableOpacity style={[styles.secondaryButton, style]} onPress={onPress}>
-        <LinearGradient
-            colors={['#006885', '#0092BB']}
-            style={styles.gradient}
-            end={{ x: 1, y: 1 }}
-        >
+      <LinearGradient
+        colors={colors || ["#006885", "#0092BB"]}
+        style={styles.gradient}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <Text style={styles.secondaryButtonText}>{text}</Text>
       </LinearGradient>
-      <Text style={styles.secondaryButtonText}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -58,14 +59,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   secondaryButton: {
-    flex: 1,
-    borderRadius: 5,
-    marginHorizontal: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingVertical: 15,
+    width: "100%",
+    borderRadius: 15,
+    overflow: "hidden",
+    marginTop: 20,
   },
   secondaryButtonText: {
-    color: "#006885",
+    color: "#fff",
     fontSize: 14,
     fontWeight: "bold",
   },
