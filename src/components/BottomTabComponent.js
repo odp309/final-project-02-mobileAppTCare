@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Image, Platform } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import tCare from '../screens/tCareScreen/tCare';
+import tcare from '../screens/TCareScreen/TCare';
 import history from '../screens/historyScreen/history';
 import setting from '../screens/settingsScreen/Settings';
-import Qr from '../screens/qrScreen/Qr';
-import HomeScreen from '../screens/homeScreen/home';
+import qr from '../screens/qrScreen/QR';
+import homescreen from '../screens/homeScreen/home';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Home,History,QrCode,FileHeart,Settings } from 'lucide-react-native';
 
@@ -61,7 +61,7 @@ const screenOptions = {
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
           name="Beranda"
-          component={HomeScreen}
+          component={homescreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={{ alignItems: "center",
@@ -89,14 +89,14 @@ const screenOptions = {
         />
         <Tab.Screen
           name="QR"
-          component={Qr}
+          component={qr}
           options={{
             tabBarIcon: QRIconWithImage
           }}
         />
         <Tab.Screen
-          name="Favorite"
-          component={tCare}
+          name="TCare"
+          component={tcare}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={{ alignItems: "center", justifyContent: "center" }}>

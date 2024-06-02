@@ -2,20 +2,20 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "./screens/loginScreen/login.js";
-import splashscreen from "./screens/splashScreen/splashscreen.js";
-import TCare from "./screens/tCareScreen/tCare.js";
-import ButtonTabNavigator from "./components/BottomTabComponent.js";
+import LoginScreen from "./screens/loginScreen/login";
+import SplashScreen from "./screens/splashScreen/splashscreen";
+import ButtonTabNavigator from "./components/BottomTabComponent";
+import AjukanPengaduan from './screens/TCareScreen/AjukanPengaduan'; // Import AjukanPengaduan screen
 
 const Stack = createStackNavigator();
 
 const AppSrc = () => {
   return (
-    <NavigationContainer initialRouteName="Splashscreen">
-      <Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splashscreen">
         <Stack.Screen
           name="Splashscreen"
-          component={splashscreen}
+          component={SplashScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -29,8 +29,9 @@ const AppSrc = () => {
           options={{ headerLeft: null, headerShown: false }}
         />
         <Stack.Screen
-          name="TCare"
-          component={TCare}
+          name="AjukanPengaduan"
+          component={AjukanPengaduan}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

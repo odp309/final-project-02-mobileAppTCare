@@ -1,14 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import ListPengaduan from './ListPengaduan';
 import ListKontakKami from './ListKontakKami';
+import HeaderComponent from '../../components/HeaderComponent';
 
 const TCare = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>T-Care</Text>
-      </View>
+      <HeaderComponent
+        TextHeader="T-Care"
+        TextColor="#333333"
+        useGradient={false}
+        solidColor="#fff"
+        showBackButton={false}  // Hide back button in TCare screen
+      />
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <ListPengaduan />
         <ListKontakKami />
@@ -21,19 +26,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  headerContainer: {
-    paddingTop: 70,
-    paddingBottom: 20,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  headerText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333333',
   },
   scrollViewContent: {
     padding: 15,
