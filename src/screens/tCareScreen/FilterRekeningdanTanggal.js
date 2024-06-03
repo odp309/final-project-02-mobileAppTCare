@@ -1,21 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import PilihRekening from './PilihRekening';
+import PilihTanggal from './PilihTanggal'; // Adjust the path as needed
 
 const FilterRekeningdanTanggal = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Pilih Rekening</Text>
-      <TextInput style={styles.input} value="123456789" />
-      <View style={styles.dateContainer}>
-        <View style={styles.dateInputContainer}>
-          <Text style={styles.label}>Tanggal Awal</Text>
-          <TextInput style={styles.input} placeholder="DD/MM/YYYY" />
-        </View>
-        <View style={styles.dateInputContainer}>
-          <Text style={styles.label}>Tanggal Akhir</Text>
-          <TextInput style={styles.input} placeholder="DD/MM/YYYY" />
-        </View>
-      </View>
+      <PilihRekening />
+      <PilihTanggal />
       <TouchableOpacity style={styles.resetButton}>
         <Text style={styles.resetButtonText}>Reset</Text>
       </TouchableOpacity>
@@ -34,29 +26,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 5,
     marginBottom: 20,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 5,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 15,
-    fontSize: 14,
-    color: '#333',
-  },
-  dateContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  dateInputContainer: {
-    flex: 1,
-    marginRight: 10,
+    zIndex: 1, // Ensure this component has a lower z-index than the dropdown
   },
   resetButton: {
     backgroundColor: '#FF3B30',

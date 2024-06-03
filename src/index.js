@@ -5,7 +5,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "./screens/loginScreen/login";
 import SplashScreen from "./screens/splashScreen/splashscreen";
 import ButtonTabNavigator from "./components/BottomTabComponent";
-import AjukanPengaduan from './screens/TCareScreen/AjukanPengaduan'; // Import AjukanPengaduan screen
+import TCare from './screens/TCareScreen/TCare'; 
+import AjukanPengaduan from './screens/TCareScreen/AjukanPengaduan'; 
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ const AppSrc = () => {
           name="Home"
           component={ButtonTabNavigator}
           options={{ headerLeft: null, headerShown: false }}
+        />
+        <Stack.Screen
+          name="TCare"
+          component={TCare}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="AjukanPengaduan"

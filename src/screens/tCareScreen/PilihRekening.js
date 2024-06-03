@@ -1,25 +1,37 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { ChevronDown } from 'lucide-react-native';
 
 const PilihRekening = () => {
-  const [selectedRekening, setSelectedRekening] = useState('123456789');
+  const [selectedAccount, setSelectedAccount] = useState('123456789');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const accounts = ['123456789', '987654321', '112233445'];
 
-  const rekeningOptions = [
-    { label: '123456789', value: '123456789' },
-    { label: '987654321', value: '987654321' },
-    { label: '112233445', value: '112233445' },
-  ];
+  const handleSelectAccount = (account) => {
+    setSelectedAccount(account);
+    setDropdownVisible(false);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Pilih Rekening</Text>
-      <RNPickerSelect
-        onValueChange={(value) => setSelectedRekening(value)}
-        items={rekeningOptions}
-        value={selectedRekening}
-        style={pickerSelectStyles}
-      />
+      <TouchableOpacity style={styles.input} onPress={() => setDropdownVisible(!dropdownVisible)}>
+        <Text>{selectedAccount}</Text>
+        <ChevronDown size={20} color="#333" />
+      </TouchableOpacity>
+      {dropdownVisible && (
+        <View style={styles.dropdown}>
+          <FlatList
+            data={accounts}
+            keyExtractor={(item) => item}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => handleSelectAccount(item)}>
+                <Text style={styles.dropdownItem}>{item}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -27,44 +39,42 @@ const PilihRekening = () => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
-    alignItems: 'center',
-    width: '100%',
+    zIndex: 10, 
   },
   label: {
     fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 5,
-    textAlign: 'center',
   },
-});
-
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    fontSize: 16,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
+  input: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 4,
-    color: 'black',
-    paddingRight: 30, // to ensure the text is never behind the icon
-    marginBottom: 15,
-    width: '100%',
-    textAlign: 'center',
+    borderColor: '#ddd',
+    borderRadius: 5,
+    padding: 10,
+    fontSize: 14,
+    color: '#333',
+    backgroundColor: '#fff',
   },
-  inputAndroid: {
-    fontSize: 16,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    borderWidth: 0.5,
-    borderColor: 'gray',
-    borderRadius: 8,
-    color: 'black',
-    paddingRight: 30, // to ensure the text is never behind the icon
-    marginBottom: 15,
-    width: '100%',
-    textAlign: 'center',
+  dropdown: {
+    position: 'absolute',
+    top: 60, 
+    left: 0,
+    right: 0,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    zIndex: 20, 
+    elevation: 10, 
+  },
+  dropdownItem: {
+    padding: 10,
+    fontSize: 14,
+    color: '#333',
   },
 });
 

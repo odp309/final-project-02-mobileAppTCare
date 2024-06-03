@@ -17,4 +17,3 @@ const GradientHeader = ({ TextHeader, Type, IconColor, TextColor, showBackButton
 };
 
 export default GradientHeader;
-
