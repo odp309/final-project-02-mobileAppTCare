@@ -2,18 +2,33 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { MessageCircleQuestion, FileSearch, ChevronRight } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const ListPengaduan = () => {
+  const navigation = useNavigation();
   const menuItems = [
-    { title: 'Ajukan Pengaduan', description: 'Ajukan pengaduan untuk masalah atau kendala terkait layanan mobile banking.', icon: MessageCircleQuestion },
-    { title: 'Pengaduan Saya', description: 'Pantau status pengaduan masalah atau kendala pada menu ini.', icon: FileSearch },
+    { 
+      title: 'Ajukan Pengaduan', 
+      description: 'Ajukan pengaduan untuk masalah atau kendala terkait layanan mobile banking.', 
+      icon: MessageCircleQuestion,
+      navigateTo: 'AjukanPengaduan' // Add navigateTo property
+    },
+    { 
+      title: 'Pengaduan Saya', 
+      description: 'Pantau status pengaduan masalah atau kendala pada menu ini.', 
+      icon: FileSearch 
+    },
   ];
 
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Pengaduan</Text>
       {menuItems.map((item, index) => (
-        <TouchableOpacity key={index} style={styles.card} onPress={() => {}}>
+        <TouchableOpacity 
+          key={index} 
+          style={styles.card} 
+          onPress={() => item.navigateTo && navigation.navigate(item.navigateTo)} // Navigate if navigateTo is defined
+        >
           <LinearGradient
             colors={['#004F65', '#0092BB']}
             start={{ x: 0, y: 0 }}

@@ -6,6 +6,7 @@ import LoginScreen from "./screens/loginScreen/login.js";
 import splashscreen from "./screens/splashScreen/splashscreen.js";
 import TCare from "./screens/tCareScreen/tCare.js";
 import ButtonTabNavigator from "./components/BottomTabComponent.js";
+import AjukanPengaduan from "./screens/tCareScreen/AjukanPengaduan.js"; 
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,10 @@ const AppSrc = () => {
         <Stack.Screen
           name="TCare"
           component={TCare}
+        />
+        <Stack.Screen
+          name="AjukanPengaduan" n
+          component={AjukanPengaduan}
         />
       </Stack.Navigator>
     </NavigationContainer>
